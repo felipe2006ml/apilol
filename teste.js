@@ -1,5 +1,6 @@
 const contentT = document.getElementById('content2')
 const inputLevel = document.getElementById('input-level')
+let dados = 0
 
 async function getChamp(nome) {
 
@@ -9,9 +10,9 @@ async function getChamp(nome) {
     const response = await fetch(url)
     const dadosJSON = await response.json()
 
-    let dados = dadosJSON.data
+    dados = dadosJSON.data[nome]
 
-    showChamp(dados[nome])
+    showChamp(dados)
 }
 
 function showChamp(statsL) {
